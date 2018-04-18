@@ -13954,7 +13954,7 @@ fAAAAABJRU5ErkJggg==
 <li><code>'cv_results_'</code>返回一个字典
 <pre><code>['mean_fit_time', 'mean_score_time', 'mean_test_score', 'mean_train_score', 'param_max_depth', 'params', 'rank_test_score', 'split0_test_score', 'split0_train_score', 'split1_test_score', 'split1_train_score', 'split2_test_score', 'split2_train_score', 'split3_test_score', 'split3_train_score', 'split4_test_score', 'split4_train_score', 'split5_test_score', 'split5_train_score', 'split6_test_score', 'split6_train_score', 'split7_test_score', 'split7_train_score', 'split8_test_score', 'split8_train_score', 'split9_test_score', 'split9_train_score', 'std_fit_time', 'std_score_time', 'std_test_score', 'std_train_score']</code></pre>
 </li>
-<li>这个方法的优势在于，同时重复运用随机产生的子样本进行训练和验证，每次的结果验证一次。如果不使用交叉验证，可能使得模型不能泛化。</li>
+<li>如果数据量不大，随机性也不够好，比如分布有顺序性，那么分出来的验证集有可能只包含数据集中一种特点的数据，这时候在验证集上得到的分数可能是不准确的。有可能是模型拟合得比较好的数据，得到的成绩优于真实表现；有可能是模型拟合得比较差的数据，得到的成绩差于真实表现。如果使用交叉验证，那么就会取多次不同的验证集分数的平均值，多次取平均值能够减少对模型表现评分的误差，这样就可以更准确地找到最优参数。</li>
 </ul>
 
 </div>
